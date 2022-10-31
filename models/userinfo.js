@@ -14,6 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       UserInfo.belongsTo(models?.User, {
         foreignKey: 'usersId',
       })
+      UserInfo.hasOne(models?.Photo, {
+				foreignKey: 'photoableId',
+				constraints: false,
+				scope: {
+					photoableType: 'userInfo'
+				}
+			});
     }
   }
   UserInfo.init({

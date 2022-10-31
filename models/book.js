@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'bookId',
         through: 'bookTypes'
       })
-      Book.hasOne(models?.Photo, {
+      Book.hasMany(models?.Photo, {
 				foreignKey: 'photoableId',
 				constraints: false,
 				scope: {

@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Photo.belongsTo(models?.Book, { foreignKey: 'photoableId', constraints: false });
+      Photo.belongsTo(models?.UserInfo, { foreignKey: 'photoableId', constraints: false });
     }
   }
   Photo.init({
@@ -37,12 +38,16 @@ module.exports = (sequelize, DataTypes) => {
 		for (const instance of findResult) {
       if (instance.photoableType === "book" && instance.Book !== undefined) {
 				instance.photoable = instance.Book;
+			} else if (instance.photoableType === "userInfo" && instance.UserInfo !== undefined) {
+				instance.photoable = instance.UserInfo;
 			} 
 			// To prevent mistakes:
 			delete instance.Book;
 			delete instance.dataValues.Book;
+      delete instance.UserInfo;
+			delete instance.dataValues.UserInfo;
 		}
 	});
-  
+
   return Photo;
 };
