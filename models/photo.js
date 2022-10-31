@@ -31,23 +31,18 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'photos',
     modelName: 'Photo',
   });
+
   Photo.addHook("afterFind", findResult => {
 		if (!Array.isArray(findResult)) findResult = [findResult];
 		for (const instance of findResult) {
-			// if (instance.photoableType === "trip" && instance.Trip !== undefined) {
-			// 	instance.photoable = instance.Trip;
-			// } else if (instance.photoableType === "member" && instance.Member !== undefined) {
-			// 	instance.photoable = instance.Member;
-			// }
       if (instance.photoableType === "book" && instance.Book !== undefined) {
 				instance.photoable = instance.Book;
 			} 
 			// To prevent mistakes:
 			delete instance.Book;
 			delete instance.dataValues.Book;
-			// delete instance.Member;
-			// delete instance.dataValues.Member;
 		}
 	});
+  
   return Photo;
 };
