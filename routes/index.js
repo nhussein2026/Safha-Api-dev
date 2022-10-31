@@ -12,7 +12,7 @@ router.use('/userInfos',require("../lib/userInfo"))
 router.use('/likes',require("../lib/likes"))
 router.use('/favorites',require("../lib/favorites"))
 router.use('/bookTypes',require("../lib/bookTypes"))
-
+router.use('/authors',require("../lib/authors"))
 
 
 
