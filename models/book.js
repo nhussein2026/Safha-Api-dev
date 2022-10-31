@@ -28,13 +28,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'bookId',
         through: 'bookTypes'
       })
-      Book.hasMany(models?.Photo, {
-				foreignKey: 'photoableId',
-				constraints: false,
-				scope: {
-					photoableType: 'book'
-				}
-			});
+      // Book.hasOne(models?.Photo, {
+			// 	foreignKey: 'photoableId',
+			// 	constraints: false,
+			// 	scope: {
+			// 		photoableType: 'book'
+			// 	}
+			// });
     }
   }
   Book.init({
