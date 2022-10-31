@@ -26,7 +26,7 @@ module.exports = {
           },
           key: "id"
         },
-        defaultValue: 2
+        // defaultValue: 2
       },
       deletedAt: {
         type: Sequelize.DATE
