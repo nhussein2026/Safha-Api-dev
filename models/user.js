@@ -27,13 +27,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         through: 'favorites'
       })
-      // User.hasMany(models.like, {
-			// 	foreignKey: 'likeableId',
-			// 	constraints: false,
-			// 	scope: {
-			// 		photoableType: 'review'
-			// 	}
-			// });
+      User.hasMany(models.like, {
+        foreignKey: 'userId',
+      })
       // User.hasMany(models.like, {
       //   foreignKey: 'id',
       // })

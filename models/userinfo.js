@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserInfo.init({
-    usersId: DataTypes.INTEGER,
+    // usersId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     nickname: DataTypes.STRING,
     des: DataTypes.STRING,
     avatar: DataTypes.STRING,

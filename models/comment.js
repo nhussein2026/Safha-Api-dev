@@ -17,6 +17,13 @@ module.exports = (sequelize, DataTypes) => {
       comment.belongsTo(models.Review, {
         foreignKey: 'reviewId',
       })
+      comment.hasMany(models.like, {
+				foreignKey: 'likeableId',
+				constraints: false,
+				scope: {
+					likeableType: 'comment'
+				}
+			});
     }
   }
   comment.init({
