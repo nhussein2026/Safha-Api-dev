@@ -20,6 +20,13 @@ module.exports = (sequelize, DataTypes) => {
       Review.hasMany(models.comment, {
         foreignKey: 'id',
       })
+      Review.hasMany(models.like, {
+				foreignKey: 'likeableId',
+				constraints: false,
+				scope: {
+					likeableType: 'review'
+				}
+			});
       // Review.hasMany(models.like, {
       //   foreignKey: 'id',
       // })
