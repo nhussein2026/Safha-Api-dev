@@ -45,7 +45,8 @@ module.exports = (sequelize, DataTypes) => {
     des: DataTypes.TEXT,
     cover: DataTypes.STRING,
     publish: DataTypes.DATE,
-    lang: DataTypes.STRING
+    lang: DataTypes.STRING,
+    deletedAt: DataTypes.DATE,
   }, {
     sequelize,
     tableName: 'books',

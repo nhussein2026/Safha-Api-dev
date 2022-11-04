@@ -39,7 +39,8 @@ module.exports = (sequelize, DataTypes) => {
   Review.init({
     userId: DataTypes.INTEGER,
     bookId: DataTypes.INTEGER,
-    content: DataTypes.TEXT
+    content: DataTypes.TEXT,
+    deletedAt: DataTypes.DATE,
   }, {
     sequelize,
     tableName: 'reviews',
