@@ -2,6 +2,7 @@ var bookTransformer = function(book) {
     if (member?.dataValues?.cover) {
         member.dataValues.cover = photoTransformer(cover)
     }
+    return book
 }
 
 var photoTransformer = function(photo) {
