@@ -28,11 +28,11 @@ const userInfoTransformer = (userInfo) => {
     console.log(userInfo)
     if(userInfo){
         delete userInfo['dataValues']['id']
-        delete userInfo['dataValues']['usersId']
+        delete userInfo['dataValues']['userId']
         delete userInfo['dataValues']['updatedAt']
         delete userInfo['dataValues']['createdAt']
-        if(userInfo['dataValues']['usersId'])
-        delete userInfo['dataValues']['usersId']
+        if(userInfo['dataValues']['userId'])
+        delete userInfo['dataValues']['userId']
     }
     return userInfo
 }
@@ -43,8 +43,8 @@ const userTypeTransformer = (userType) => {
         delete userType['dataValues']['id']
         delete userType['dataValues']['updatedAt']
         delete userType['dataValues']['createdAt']
-        if(userType['dataValues']['usersId'])
-        delete userType['dataValues']['usersId']
+        if(userType['dataValues']['userId'])
+        delete userType['dataValues']['userId']
     }
     return userType
 }

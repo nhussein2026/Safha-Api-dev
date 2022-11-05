@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       UserInfo.belongsTo(models?.User, {
-        foreignKey: 'usersId',
+        foreignKey: 'userId',
       })
       // UserInfo.hasOne(models?.Photo, {
 			// 	foreignKey: 'photoableId',
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserInfo.init({
-    // usersId: DataTypes.INTEGER,
+    // userId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     nickname: DataTypes.STRING,
     des: DataTypes.STRING,
