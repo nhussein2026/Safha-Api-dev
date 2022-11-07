@@ -11,24 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Book.hasMany(models?.Review, {
+      Book.hasMany(models.Review, {
         foreignKey: 'bookId',
       })
-      // Book.belongsTo(models.category, {
-      //   foreignKey: 'id',
-      // })
-      Book.belongsTo(models?.Publisher, {
-        foreignKey: 'bookId',
+      Book.belongsTo(models.Category, {
+        foreignKey: 'categoryId',
       })
-      Book.belongsToMany(models?.User, {
+      Book.belongsTo(models.Publisher, {
+        foreignKey: 'publisherId', 
+      })
+      Book.belongsToMany(models.User, {
         foreignKey: 'bookId',
         through: 'favorites'
       })
-      Book.belongsToMany(models?.Category, {
+      Book.belongsToMany(models.Category, {
         foreignKey: 'bookId',
         through: 'bookTypes'
       })
-      // Book.hasOne(models?.Photo, {
+      // Book.hasOne(models.Photo, {
 			// 	foreignKey: 'photoableId',
 			// 	constraints: false,
 			// 	scope: {

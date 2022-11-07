@@ -17,15 +17,15 @@ module.exports = (sequelize, DataTypes) => {
 		}
     static associate(models) {
       // define association here
-      Like.belongsTo(models?.Review, {
+      Like.belongsTo(models.Review, {
         foreignKey: 'likeableId',
         constraints: false, 
       })
-      Like.belongsTo(models?.comment, {
+      Like.belongsTo(models.Comment, {
         foreignKey: 'likeableId',
         constraints: false, 
       })
-      Like.belongsTo(models?.User, {
+      Like.belongsTo(models.User, {
 				foreignKey: 'userId',
 				constraints: false,
 			});
