@@ -12,10 +12,10 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     return queryInterface.bulkInsert('reviews', [{
-      userId: 1,
-      bookId: 1,
-      content: "hi",
+     return queryInterface.bulkInsert('publishers', [{
+      name: "Nasser",
+      des: "This is Safha publisher",
+      // bookId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

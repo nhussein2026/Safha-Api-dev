@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   Publisher.init({
     name: DataTypes.STRING,
     des: DataTypes.TEXT,
-    bookId: DataTypes.INTEGER,
+    // bookId: DataTypes.INTEGER,
     deletedAt: DataTypes.DATE,
   }, {
     sequelize,

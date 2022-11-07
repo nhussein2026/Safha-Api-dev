@@ -50,6 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     publish: DataTypes.DATE,
     lang: DataTypes.STRING,
     deletedAt: DataTypes.DATE,
+    publisherId: DataTypes.INTEGER,
   }, {
     sequelize,
     tableName: 'books',

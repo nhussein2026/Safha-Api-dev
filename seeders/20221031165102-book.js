@@ -21,6 +21,7 @@ module.exports = {
       cover: "this is empty",
       publish: "2022-10-30 14:55:10",
       lang: "Ar",
+      publisherId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

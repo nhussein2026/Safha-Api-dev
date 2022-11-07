@@ -14,7 +14,7 @@ module.exports = {
     */
      return queryInterface.bulkInsert('categories', [{
       name: "Fiction",
-      des: "this is fiction section",
+      des: "This is fiction section",
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
