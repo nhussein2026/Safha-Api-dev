@@ -13,13 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsTo(models.UserType);
       User.hasMany(models.Comment, {
-        foreignKey: 'id',
+        foreignKey: 'userId',
       })
       User.hasMany(models.Review, {
-        foreignKey: 'id',
+        foreignKey: 'userId',
       })
       User.hasOne(models.UserInfo, {
-        foreignKey: 'id',
+        foreignKey: 'userId',
       })
       User.belongsToMany(models.Book, {
         foreignKey: 'userId',
@@ -27,6 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       })
       User.hasMany(models.Like, {
         foreignKey: 'userId',
+      })
+      User.belongsTo(models.Rate, {
+        foreignKey: 'userId'
       })
       // User.hasMany(models.Like, {
       //   foreignKey: 'id',

@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
       })
       Review.belongsTo(models.Book, {
-        foreignKey: 'id',
+        foreignKey: 'bookId',
       })
       Review.hasMany(models.Comment, {
-        foreignKey: 'id',
+        foreignKey: 'reviewId',
       })
       Review.hasMany(models.Like, {
 				foreignKey: 'likeableId',
