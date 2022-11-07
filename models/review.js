@@ -17,17 +17,17 @@ module.exports = (sequelize, DataTypes) => {
       Review.belongsTo(models.Book, {
         foreignKey: 'id',
       })
-      Review.hasMany(models.comment, {
+      Review.hasMany(models.Comment, {
         foreignKey: 'id',
       })
-      Review.hasMany(models.like, {
+      Review.hasMany(models.Like, {
 				foreignKey: 'likeableId',
 				constraints: false,
 				scope: {
 					likeableType: 'review'
 				}
 			});
-      // Review.hasMany(models.like, {
+      // Review.hasMany(models.Like, {
       //   foreignKey: 'id',
       // })
       // Review.belongsToMany(models.User, {
