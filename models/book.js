@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'bookId',
         through: 'favorites'
       })
-      Book.belongsToMany(models?.category, {
+      Book.belongsToMany(models?.Category, {
         foreignKey: 'bookId',
         through: 'bookTypes'
       })
