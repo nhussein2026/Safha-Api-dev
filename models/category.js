@@ -26,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     deletedAt: DataTypes.DATE,
   }, {
     sequelize,
+    tableName: 'categories',
     modelName: 'Category',
   });
   return Category;

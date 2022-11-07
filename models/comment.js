@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     deletedAt: DataTypes.DATE,
   }, {
     sequelize,
+    tableName: 'comments',
     modelName: 'Comment',
   });
   return Comment;
