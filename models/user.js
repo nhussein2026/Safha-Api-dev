@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.belongsTo(models.UserType);
+      User.hasOne(models.UserType, {
+        foreignKey: 'userTypeId',
+      })
       User.hasMany(models.Comment, {
         foreignKey: 'userId',
       })
@@ -31,14 +33,6 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(models.Rate, {
         foreignKey: 'userId'
       })
-      // User.hasMany(models.Like, {
-      //   foreignKey: 'id',
-      // })
-      // User.belongsToMany(models.Review, {
-      //   foreignKey: 'reviewId',
-      //   through: 'likes'
-      // })
-      
     }
   }
   User.init({
