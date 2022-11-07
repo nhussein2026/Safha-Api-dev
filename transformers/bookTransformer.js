@@ -1,4 +1,4 @@
-var photoTransformer = require('./photoTransformer')
+var {photoTransformer} = require('./photoTransformer')
 
 var booksTransformer = function(books) {
     return books.map(book => bookTransformer(book))
