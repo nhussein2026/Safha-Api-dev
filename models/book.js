@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Book.hasMany(models?.Review, {
-        foreignKey: 'id',
+        foreignKey: 'bookId',
       })
       // Book.belongsTo(models.category, {
       //   foreignKey: 'id',
       // })
       Book.belongsTo(models?.Publisher, {
-        foreignKey: 'id',
+        foreignKey: 'bookId',
       })
       Book.belongsToMany(models?.User, {
         foreignKey: 'bookId',
@@ -51,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     tableName: 'books',
     modelName: 'Book',
+    paranoid: true
   });
   return Book;
 };
