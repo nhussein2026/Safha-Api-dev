@@ -15,19 +15,19 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
       })
       Review.belongsTo(models.Book, {
-        foreignKey: 'id',
+        foreignKey: 'bookId',
       })
-      Review.hasMany(models.comment, {
-        foreignKey: 'id',
+      Review.hasMany(models.Comment, {
+        foreignKey: 'reviewId',
       })
-      Review.hasMany(models.like, {
+      Review.hasMany(models.Like, {
 				foreignKey: 'likeableId',
 				constraints: false,
 				scope: {
 					likeableType: 'review'
 				}
 			});
-      // Review.hasMany(models.like, {
+      // Review.hasMany(models.Like, {
       //   foreignKey: 'id',
       // })
       // Review.belongsToMany(models.User, {

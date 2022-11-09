@@ -16,8 +16,8 @@ module.exports = {
       userId: 1,
       nickname: 'Feras Jobeir',
       des: 'teacher',
-      avatar: "url",
-      bgPic: "url",
+      avatar: "avatar.png",
+      bgPic: "bgPic.png",
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

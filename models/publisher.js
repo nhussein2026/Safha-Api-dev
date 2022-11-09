@@ -12,14 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Publisher.hasMany(models.Book, {
-        foreignKey: 'id',
+        foreignKey: 'publisherId',
       })
     }
   }
   Publisher.init({
     name: DataTypes.STRING,
     des: DataTypes.TEXT,
-    bookId: DataTypes.INTEGER,
+    // bookId: DataTypes.INTEGER,
     deletedAt: DataTypes.DATE,
   }, {
     sequelize,

@@ -20,12 +20,12 @@ module.exports = {
       },
       reviewId: {
         type: Sequelize.INTEGER,
-        // references: {
-        //   model: {
-        //     tableName: "reviews"
-        //   },
-        //   key: "id"
-        // }
+        references: {
+          model: {
+            tableName: "reviews"
+          },
+          key: "id"
+        }
       },
       content: {
         type: Sequelize.TEXT

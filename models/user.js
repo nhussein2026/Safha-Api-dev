@@ -11,31 +11,28 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.belongsTo(models.UserType);
-      User.hasMany(models.comment, {
-        foreignKey: 'id',
+      User.hasOne(models.UserType, {
+        foreignKey: 'userTypeId',
+      })
+      User.hasMany(models.Comment, {
+        foreignKey: 'userId',
       })
       User.hasMany(models.Review, {
-        foreignKey: 'id',
+        foreignKey: 'userId',
       })
       User.hasOne(models.UserInfo, {
-        foreignKey: 'id',
+        foreignKey: 'userId',
       })
       User.belongsToMany(models.Book, {
         foreignKey: 'userId',
         through: 'favorites'
       })
-      User.hasMany(models.like, {
+      User.hasMany(models.Like, {
         foreignKey: 'userId',
       })
-      // User.hasMany(models.like, {
-      //   foreignKey: 'id',
-      // })
-      // User.belongsToMany(models.Review, {
-      //   foreignKey: 'reviewId',
-      //   through: 'likes'
-      // })
-      
+      User.belongsTo(models.Rate, {
+        foreignKey: 'userId'
+      })
     }
   }
   User.init({

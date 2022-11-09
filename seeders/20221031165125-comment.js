@@ -15,7 +15,7 @@ module.exports = {
      return queryInterface.bulkInsert('comments', [{
       userId: 1,
       reviewId: 1,
-      content: "this is my comment",
+      content: "This is my comment",
       createdAt: new Date(),
       updatedAt: new Date()
     }]);

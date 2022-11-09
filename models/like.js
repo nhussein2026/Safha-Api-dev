@@ -4,7 +4,7 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class like extends Model {
+  class Like extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -17,29 +17,29 @@ module.exports = (sequelize, DataTypes) => {
 		}
     static associate(models) {
       // define association here
-      like.belongsTo(models?.Review, {
+      Like.belongsTo(models.Review, {
         foreignKey: 'likeableId',
         constraints: false, 
       })
-      like.belongsTo(models?.comment, {
+      Like.belongsTo(models.Comment, {
         foreignKey: 'likeableId',
         constraints: false, 
       })
-      like.belongsTo(models?.User, {
+      Like.belongsTo(models.User, {
 				foreignKey: 'userId',
 				constraints: false,
 			});
     }
   }
-  like.init({
+  Like.init({
     likeableId: DataTypes.INTEGER,
     likeableType: DataTypes.STRING,
     deletedAt: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'like',
+    modelName: 'Like',
   });
-  like.addHook("afterFind", findResult => {
+  Like.addHook("afterFind", findResult => {
 		if (!Array.isArray(findResult)) findResult = [findResult];
 		for (const instance of findResult) {
 			if (instance?.likeableType === "review" && instance.Review !== undefined) {
@@ -54,5 +54,5 @@ module.exports = (sequelize, DataTypes) => {
 			delete instance?.dataValues.comment;
 		}
 	});
-  return like;
+  return Like;
 };

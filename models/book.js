@@ -11,24 +11,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Book.hasMany(models?.Review, {
-        foreignKey: 'id',
+      Book.hasMany(models.Review, {
+        foreignKey: 'bookId',
       })
-      // Book.belongsTo(models.category, {
-      //   foreignKey: 'id',
+      // Book.belongsTo(models.Category, {
+      //   foreignKey: 'categoryId',
       // })
-      Book.belongsTo(models?.Publisher, {
-        foreignKey: 'id',
+      Book.belongsTo(models.Publisher, {
+        foreignKey: 'publisherId', 
       })
-      Book.belongsToMany(models?.User, {
+      Book.belongsToMany(models.User, {
         foreignKey: 'bookId',
         through: 'favorites'
       })
-      Book.belongsToMany(models?.category, {
+      Book.belongsToMany(models.Category, {
         foreignKey: 'bookId',
         through: 'bookTypes'
       })
-      // Book.hasOne(models?.Photo, {
+      Book.hasMany(models.Rate, {
+        foreignKey: 'bookId'
+      })
+      // Book.hasOne(models.Photo, {
 			// 	foreignKey: 'photoableId',
 			// 	constraints: false,
 			// 	scope: {
@@ -47,10 +50,12 @@ module.exports = (sequelize, DataTypes) => {
     publish: DataTypes.DATE,
     lang: DataTypes.STRING,
     deletedAt: DataTypes.DATE,
+    publisherId: DataTypes.INTEGER,
   }, {
     sequelize,
     tableName: 'books',
     modelName: 'Book',
+    paranoid: true
   });
   return Book;
 };
