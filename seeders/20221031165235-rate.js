@@ -12,8 +12,9 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     return queryInterface.bulkInsert('ratings', [{
+     return queryInterface.bulkInsert('rates', [{
       bookId: 1,
+      userId: 1,
       rate: 5,
       createdAt: new Date(),
       updatedAt: new Date()

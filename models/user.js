@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Like, {
         foreignKey: 'userId',
       })
-      User.belongsTo(models.Rate, {
+      User.hasMany(models.Rate, {
         foreignKey: 'userId'
       })
     }
