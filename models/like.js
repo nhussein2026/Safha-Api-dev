@@ -38,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Like',
+    paranoid: true
   });
   Like.addHook("afterFind", findResult => {
 		if (!Array.isArray(findResult)) findResult = [findResult];
