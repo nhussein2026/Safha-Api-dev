@@ -15,6 +15,7 @@ router.use('/bookTypes',require("../lib/bookTypes"))
 router.use('/authors',require("../lib/authors"))
 router.use('/admins',require("../lib/admin"))
 router.use('/publisher',require("../lib/publishers"))
+router.use('/search',require("../lib/search"))
 
 
 
