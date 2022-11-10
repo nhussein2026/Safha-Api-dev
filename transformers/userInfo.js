@@ -1,4 +1,4 @@
-var photoTransformer = require('./photoTransformer')
+var {photoTransformer} = require('./photoTransformer')
 
 var userInfosTransformer = function(userInfos) {
     return userInfos.map(userInfo => userInfoTransformer(userInfo))
