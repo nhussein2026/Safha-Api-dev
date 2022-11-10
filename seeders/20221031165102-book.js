@@ -22,6 +22,9 @@ module.exports = {
       publish: "2022-10-30 14:55:10",
       lang: "Ar",
       publisherId: 1,
+      ISBN: '123456778',
+      categoryId: 1,
+      author: 'Ghadir Alselwi',
       createdAt: new Date(),
       updatedAt: new Date()
     }]);
