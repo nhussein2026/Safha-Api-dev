@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       Book.hasMany(models.Review, {
         foreignKey: 'bookId',
       })
-      // Book.belongsTo(models.Category, {
-      //   foreignKey: 'categoryId',
-      // })
+      Book.belongsTo(models.Category, {
+        foreignKey: 'categoryId',
+      })
       Book.belongsTo(models.Publisher, {
         foreignKey: 'publisherId', 
       })
@@ -25,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'bookId', 
         through: 'favorites'
       })
-      Book.belongsToMany(models.Category, {
-        foreignKey: 'bookId',
-        through: 'bookTypes'
-      })
+      // Book.belongsToMany(models.Category, {
+      //   foreignKey: 'bookId',
+      //   through: 'bookTypes'
+      // })
       Book.hasMany(models.Rate, {
         foreignKey: 'bookId'
       })
