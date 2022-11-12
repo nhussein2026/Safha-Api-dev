@@ -31,13 +31,9 @@ module.exports = (sequelize, DataTypes) => {
       Book.hasMany(models.Rate, {
         foreignKey: 'bookId'
       })
-      // Book.hasOne(models.Photo, {
-			// 	foreignKey: 'photoableId',
-			// 	constraints: false,
-			// 	scope: {
-			// 		photoableType: 'book'
-			// 	}
-			// });
+      Book.belongsTo(models.User, {
+        foreignKey: 'userId'
+      })
     }
   }
   Book.init({
