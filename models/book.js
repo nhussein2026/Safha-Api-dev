@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'publisherId', 
       })
       Book.belongsToMany(models.User, {
-        foreignKey: 'bookId',
+        as:"Favorite",
+        foreignKey: 'bookId', 
         through: 'favorites'
       })
       Book.belongsToMany(models.Category, {
@@ -32,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'bookId'
       })
       Book.belongsTo(models.User, {
-        foreignKey: 'userId'
+        foreignKey: 'userId', as:"Creator"
       })
     }
   }
