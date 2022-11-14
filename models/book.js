@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'bookId'
       })
       Book.belongsTo(models.User, {
-        foreignKey: 'userId', as:"Creator"
+        foreignKey: 'userId', as: "Creator"
       })
     }
   }
