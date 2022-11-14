@@ -1,6 +1,6 @@
 const isAuthor = function(req, res, next) {
     if (req.user) {
-        if (req.user.type == 'author' || "admin") {
+        if (req.user.type == 1 || req.user.type == 3) {
             return next()
         }
     }
