@@ -66,9 +66,43 @@ const reviewsTransformer = (reviews) => {
     return reviews
 }
 
+// const adminsTransformer = (admins) => {
+//     console.log(admins)
+//     const transformeredAdmins = {
+//         userTypeId: '',
+//         User: {name: '', email:''},
+//         UserType:{type:''}
+//     }
+//     if (admins) {
+//         transformeredAdmins.userTypeId = admins?.userTypeId
+//         transformeredAdmins.User.name = admins?.User?.username
+//         transformeredAdmins.User.email = admins?.User?.email
+//         transformeredAdmins.UserType.type = admins?.UserType?.type
+
+//         return transformeredAdmins
+//     }
+   
+//     return admins
+// }
+
+
+const categoryTransformer = (category) => {
+    console.log(category)
+    if(category){
+        // delete category['dataValues']['id']
+        delete category['dataValues']['updatedAt']
+        delete category['dataValues']['createdAt']
+        // if(category['dataValues']['userId'])
+        // delete category['dataValues']['userId']
+    }
+    return category
+}
+
 module.exports = {
     userTransformer,
     userInfoTransformer,
     userTypeTransformer,
-    reviewsTransformer
+    reviewsTransformer,
+    // adminsTransformer,
+    categoryTransformer
 }
