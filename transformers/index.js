@@ -65,37 +65,37 @@ const reviewsTransformer = (reviews) => {
    
     return reviews
 }
-// const categoriesTransformer = (categories) => {
-//     console.log(categories)
-//     const transformeredCategories = {
-//         id: '',
-//         name:'',
-//         des:'',
-//         deletedAt:'',
-//         Books: {name: '', pagesCount:'', des:'', cover:'', publish:'', lang:'',ISBN:'',author:'',kindle:'',paper:''}
-//     }
-//     if (categories) {
-//         transformeredCategories.id = categories?.id
-//         transformeredCategories.name = categories?.name
-//         transformeredCategories.des = categories?.des
-//         transformeredCategories.deletedAt = categories?.deletedAt
+const categoriesTransformer = (categories) => {
+    console.log(categories)
+    const transformeredCategories = {
+        id: '',
+        name:'',
+        des:'',
+        deletedAt:'',
+        Books: {name: '', pagesCount:'', des:'', cover:'', publish:'', lang:'',ISBN:'',author:'',kindle:'',paper:''}
+    }
+    if (categories) {
+        transformeredCategories.id = categories?.id
+        transformeredCategories.name = categories?.name
+        transformeredCategories.des = categories?.des
+        transformeredCategories.deletedAt = categories?.deletedAt
 
-//         transformeredCategories.Books.name = categories?.Books?.name
-//         transformeredCategories.Books.pagesCount = categories?.Books?.pagesCount
-//         transformeredCategories.Books.des = categories?.Books?.des
-//         transformeredCategories.Books.cover = categories?.Books?.cover
-//         transformeredCategories.Books.publish = categories?.Books?.publish
-//         transformeredCategories.Books.lang = categories?.Books?.lang
-//         transformeredCategories.Books.ISBN = categories?.Books?.ISBN
-//         transformeredCategories.Books.author = categories?.Books?.author
-//         transformeredCategories.Books.kindle = categories?.Books?.kindle
-//         transformeredCategories.Books.paper = categories?.Books?.paper
+        // transformeredCategories.Books.name = categories?.Books?.name
+        // transformeredCategories.Books.pagesCount = categories?.Books?.pagesCount
+        // transformeredCategories.Books.des = categories?.Books?.des
+        // transformeredCategories.Books.cover = categories?.Books?.cover
+        // transformeredCategories.Books.publish = categories?.Books?.publish
+        // transformeredCategories.Books.lang = categories?.Books?.lang
+        // transformeredCategories.Books.ISBN = categories?.Books?.ISBN
+        // transformeredCategories.Books.author = categories?.Books?.author
+        // transformeredCategories.Books.kindle = categories?.Books?.kindle
+        // transformeredCategories.Books.paper = categories?.Books?.paper
 
-//         return transformeredCategories
-//     }
+        return transformeredCategories
+    }
    
-//     return categories
-// }
+    return categories
+}
 
 // const adminsTransformer = (admins) => {
 //     console.log(admins)
@@ -115,18 +115,34 @@ const reviewsTransformer = (reviews) => {
    
 //     return admins
 // }
+const oneCategoryTransformer = (category) => {
+    const transformeredCategory = {
+        id: 0,
+        name:'',
+        des:'',
+        Books: [],
+    }
+    if (category) {
+        transformeredCategory.id = category.id
+        transformeredCategory.name = category.name
+        transformeredCategory.des = category.des
+        transformeredCategory.Books = (category.Books)
 
+        return transformeredCategory
 
-const categoryTransformer = (category) => {
-    console.log(category)
-    if(category){
-        // delete category['dataValues']['id']
-        delete category['dataValues']['updatedAt']
-        delete category['dataValues']['createdAt']
-        // if(category['dataValues']['userId'])
-        // delete category['dataValues']['userId']
     }
     return category
+}
+
+const categoryTransformer = (categories) => {
+    const transformeredCategory = []
+    if (categories?.length > 0) {
+        categories?.map(category => {
+            transformeredCategory.push(oneCategoryTransformer(category))
+        })
+        return transformeredCategory
+    }
+    return categories
 }
 
 const publisherTransformer = (publisher) => {
@@ -160,7 +176,7 @@ module.exports = {
     reviewsTransformer,
     // adminsTransformer,
     categoryTransformer,
-    // categoriesTransformer,
+    categoriesTransformer,
     // bookTransformer,
     publisherTransformer
 }
