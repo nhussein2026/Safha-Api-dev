@@ -65,42 +65,37 @@ const reviewsTransformer = (reviews) => {
    
     return reviews
 }
-const categoriesTransformer = (categories) => {
-    console.log(categories)
-    const transformeredCategories = {
-        id: '',
-        name:'',
-        des:'',
-        deletedAt:'',
-        Books: {name: '', pagesCount:'', des:'', cover:'', publish:'', lang:'',ISBN:'',author:'',kindle:'',paper:''}
-    }
-    if (categories) {
-        transformeredCategories.id = categories?.id
-        transformeredCategories.name = categories?.name
-        transformeredCategories.des = categories?.des
-        transformeredCategories.deletedAt = categories?.deletedAt
+// const categoriesTransformer = (categories) => {
+//     console.log(categories)
+//     const transformeredCategories = {
+//         id: '',
+//         name:'',
+//         des:'',
+//         deletedAt:'',
+//         Books: {name: '', pagesCount:'', des:'', cover:'', publish:'', lang:'',ISBN:'',author:'',kindle:'',paper:''}
+//     }
+//     if (categories) {
+//         transformeredCategories.id = categories?.id
+//         transformeredCategories.name = categories?.name
+//         transformeredCategories.des = categories?.des
+//         transformeredCategories.deletedAt = categories?.deletedAt
 
-        transformeredCategories.Books.name = categories?.Books?.name
-        transformeredCategories.Books.pagesCount = categories?.Books?.pagesCount
-        transformeredCategories.Books.des = categories?.Books?.des
-        transformeredCategories.Books.cover = categories?.Books?.cover
-        transformeredCategories.Books.publish = categories?.Books?.publish
-        transformeredCategories.Books.lang = categories?.Books?.lang
-        transformeredCategories.Books.ISBN = categories?.Books?.ISBN
-        transformeredCategories.Books.author = categories?.Books?.author
-        transformeredCategories.Books.kindle = categories?.Books?.kindle
-        transformeredCategories.Books.paper = categories?.Books?.paper
+//         transformeredCategories.Books.name = categories?.Books?.name
+//         transformeredCategories.Books.pagesCount = categories?.Books?.pagesCount
+//         transformeredCategories.Books.des = categories?.Books?.des
+//         transformeredCategories.Books.cover = categories?.Books?.cover
+//         transformeredCategories.Books.publish = categories?.Books?.publish
+//         transformeredCategories.Books.lang = categories?.Books?.lang
+//         transformeredCategories.Books.ISBN = categories?.Books?.ISBN
+//         transformeredCategories.Books.author = categories?.Books?.author
+//         transformeredCategories.Books.kindle = categories?.Books?.kindle
+//         transformeredCategories.Books.paper = categories?.Books?.paper
 
-
-
-
-
-
-        return transformeredCategories
-    }
+//         return transformeredCategories
+//     }
    
-    return categories
-}
+//     return categories
+// }
 
 // const adminsTransformer = (admins) => {
 //     console.log(admins)
@@ -134,6 +129,30 @@ const categoryTransformer = (category) => {
     return category
 }
 
+const publisherTransformer = (publisher) => {
+    console.log(publisher)
+    if(publisher){
+        // delete category['dataValues']['id']
+        delete publisher['dataValues']['updatedAt']
+        delete publisher['dataValues']['createdAt']
+        // if(category['dataValues']['userId'])
+        // delete category['dataValues']['userId']
+    }
+    return publisher
+}
+
+// const bookTransformer = (book) => {
+//     console.log(book)
+//     if(book){
+        // delete category['dataValues']['id']
+        // delete category['dataValues']['updatedAt']
+        // delete category['dataValues']['createdAt']
+        // if(category['dataValues']['userId'])
+        // delete category['dataValues']['userId']
+//     }
+//     return book
+// }
+
 module.exports = {
     userTransformer,
     userInfoTransformer,
@@ -141,5 +160,7 @@ module.exports = {
     reviewsTransformer,
     // adminsTransformer,
     categoryTransformer,
-    categoriesTransformer
+    // categoriesTransformer,
+    // bookTransformer,
+    publisherTransformer
 }
