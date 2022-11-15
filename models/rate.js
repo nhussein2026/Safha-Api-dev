@@ -22,11 +22,13 @@ module.exports = (sequelize, DataTypes) => {
   Rate.init({
     bookId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    rate: DataTypes.INTEGER
+    rate: DataTypes.INTEGER,
+    deletedAt: DataTypes.DATE,
   }, {
     sequelize,
     tableName: "rates",
     modelName: 'Rate',
+    paranoid: true
   });
   return Rate;
 };
