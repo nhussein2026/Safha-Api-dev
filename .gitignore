@@ -1,5 +1,4 @@
 node_modules
 config
-uploads
 .env.development
 .env
