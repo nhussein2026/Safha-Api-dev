@@ -19,7 +19,7 @@ module.exports = {
       categoryId: 1,
       des: "this is my novel",
       cover: "this is empty",
-      publish: "2022-10-30 14:55:10",
+      publish: "2022-10-30",
       lang: "Ar",
       publisherId: 1,
       ISBN: '123456778',
