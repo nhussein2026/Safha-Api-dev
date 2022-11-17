@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/backend/uploads', express.static((__dirname, '/backend/uploads')));
 
-app.use('/api/v1', indexRouter);
+// app.use('/api/v1', indexRouter);
 app.use(process.env.API_PREFIX, indexRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
