@@ -21,11 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-<<<<<<< HEAD
 app.use('/backend/uploads', express.static((__dirname, '/backend/uploads')));
-=======
-app.use(process.env.API_PREFIX + '/uploads', express.static(path.join(__dirname, 'uploads')));
->>>>>>> 10cb71acc2ffadddbbfa09d8aa555c3baf3d63c7
 
 // app.use('/api/v1', indexRouter);
 app.use(process.env.API_PREFIX, indexRouter)
