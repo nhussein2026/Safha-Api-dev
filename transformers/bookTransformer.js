@@ -3,6 +3,7 @@ var {photoTransformer} = require('./photoTransformer')
 var booksTransformer = function(books) {
     return books.map(book => bookTransformer(book))
 }
+
 var bookTransformer = function(book){
 
     if (book?.dataValues?.cover) {
@@ -23,5 +24,5 @@ var bookTransformer = function(book){
 
 module.exports = {
     bookTransformer,
-    booksTransformer
+    booksTransformer,
 }
